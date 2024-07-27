@@ -115,19 +115,35 @@ void desenharLua() {
 }
 
 void desenharPoste() {
-    // Desenhar o poste de luz
+    // Base do poste
     glPushMatrix();
-    definirMaterial(0.5f, 0.5f, 0.5f); // Cinza
-    glTranslatef(-2.0, 0.0, 2.0); // Posição do poste
-    glScalef(0.1, 2.0, 0.1); // Escala do poste
-    glutSolidCube(1.0);
+    definirMaterial(0.3f, 0.3f, 0.3f); // Cinza escuro
+    glTranslatef(-2.0f, 0.1f, 2.0f);
+    glScalef(0.3f, 0.2f, 0.3f);
+    glutSolidCube(1.0f);
     glPopMatrix();
 
-    // Desenhar a lâmpada do poste
+    // Haste do poste
+    glPushMatrix();
+    definirMaterial(0.5f, 0.5f, 0.5f); // Cinza
+    glTranslatef(-2.0f, 1.2f, 2.0f); // Posição do poste
+    glScalef(0.1f, 2.0f, 0.1f); // Escala da haste
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Braço do poste
+    glPushMatrix();
+    definirMaterial(0.5f, 0.5f, 0.5f); // Cinza
+    glTranslatef(-2.0f, 2.2f, 2.0f);
+    glScalef(1.0f, 0.1f, 0.1f); // Escala do braço
+    glutSolidCube(0.3f);
+    glPopMatrix();
+
+    // Lâmpada do poste
     glPushMatrix();
     definirMaterial(1.0f, 1.0f, 0.0f); // Amarelo (lâmpada acesa)
-    glTranslatef(-2.0, 2.0, 2.0); // Posição da lâmpada no topo do poste
-    glutSolidSphere(0.2, 20, 20);
+    glTranslatef(-1.85f, 2.2f, 2.0f); // Posição da lâmpada no final do braço
+    glutSolidSphere(0.15f, 20, 20);
     glPopMatrix();
 }
 
